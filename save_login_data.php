@@ -14,13 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // تنفيذ الطلب
     $response = curl_exec($ch);
-
     if (curl_errno($ch)) {
-        // إذا كان هناك خطأ أثناء تنفيذ الطلب
         echo 'Error:' . curl_error($ch); // عرض الأخطاء في حالة وجودها
     } else {
-        // إذا تم إرسال البيانات بنجاح
-        echo "Data sent successfully to webhook. Response: " . $response;
+        echo "Data sent successfully to webhook.";
     }
 
     // إغلاق جلسة cURL
