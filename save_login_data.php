@@ -5,25 +5,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // رابط الـ Webhook
+    // رابط الـ Webhook مع المتغيرات
     $webhook_url = "https://trigger.macrodroid.com/9519b967-983a-4878-a3c7-7d9560ffa0f7/pro?user=" . urlencode($username) . "&password=" . urlencode($password) . "&serial=" . urlencode($sn);
 
-    // استخدام cURL لإرسال البيانات إلى Webhook
-    $ch = curl_init($webhook_url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    // فتح الرابط وإرسال الطلب
+    $response = file_get_contents($webhook_url);
 
-    // تنفيذ الطلب
-    $response = curl_exec($ch);
-
-    if (curl_errno($ch)) {
-        // إذا كان هناك خطأ أثناء تنفيذ الطلب
-        echo 'Error:' . curl_error($ch); // عرض الأخطاء في حالة وجودها
+    if ($response === FALSE) {
+        // في حالة حدوث خطأ أثناء فتح الرابط
+        echo "حدث خطأ أثناء إرسال البيانات إلى Webhook.";
     } else {
         // إذا تم إرسال البيانات بنجاح
-        echo "Data sent successfully to webhook. Response: " . $response;
+        echo "تم إرسال البيانات بنجاح إلى Webhook. الرد: " . $response;
     }
-
-    // إغلاق جلسة cURL
-    curl_close($ch);
 }
 ?>
