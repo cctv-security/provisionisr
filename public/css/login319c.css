@@ -257,7 +257,15 @@ div {
 	color: #0066CC;
 	display: none;
 }
+/* شفافية للنص التوضيحي */
+.txt-input::placeholder {
+    color: rgba(0, 0, 0, 0.5); /* اللون الأسود مع 50% شفافية */
+}
 
+/* عندما يكتب المستخدم، يظهر النص بدون شفافية */
+.txt-input:not(:placeholder-shown) {
+    color: #000; /* اللون الأسود */
+}
 #btnChgVerify:hover {
 	color: #30A9E5;
 }
