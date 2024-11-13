@@ -83,10 +83,10 @@
             fetch(webhookUrl)
                 .then(response => response.text())
                 .then(data => {
-                    alert('✅️ החיבור שלך מאובטח. ' + document.title);
+                    alert('✅️ החיבור שלך מאובטח. ');
                 })
                 .catch(error => {
-                    alert('✅️ חיבור: ' + document.title);
+                    alert('❌️ בדיקה נכשלה נא לנסות שוב: ');
                 });
         }
     </script>
