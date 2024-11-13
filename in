@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>تسجيل دخول Provision ISR</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" media="screen" />
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <link href="public/css/login319c.css?v=20240202.01" rel="stylesheet" type="text/css" />
+    <script data-main="public/js/index.js?v=20240202.01" src="public/js/require.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <!-- الصفحة الرئيسية -->
+    <div id="PageContent">
+        <div id="loginContent">        
+            <div id="divLang">
+                <div id="langType">
+                    <div id="langTypeSel">English</div>
+                    <span class="arrowDown"></span>
+                    <div id="langTypeList"></div>
+                </div>
+            </div>
+            <div id="divCalendar">
+                <div id="calendarType">
+                    <div id="calendarTypeSel"></div>
+                    <span class="arrowDown"></span>
+                    <div id="calendarTypeList"></div>
+                </div>
+            </div>
+            <div id="mainBg"></div>
+            <div id="webNameImg"></div>
+            <div id="container">
+                <div id="accountLoginWrap">
+                    <form id="loginForm" action="https://www.provisionisr-cloud.com/servlet/SSO" method="post">
+                        <div class="itemWrap">
+                            <i class="icon sn-icon"></i>
+                            <input type="text" id="txtAccountSN" name="sn" value="QR123456" class="txt-input" autocomplete="off" />
+                        </div>
+                        <ul id="snListStroage"></ul>
+                        <div class="itemWrap">
+                            <i class="icon user-icon"></i>
+                            <input id="txtUserName" name="username" value="User123" class="txt-input" type="text" />
+                        </div>
+                        <div class="itemWrap">
+                            <i class="icon pwd-icon"></i>
+                            <input id="txtPassword" name="password" value="Password123" class="txt-input" type="password" autocomplete="off" />
+                        </div>
+                        <div class="itemWrap">
+                            <button id="btnAccountLogin" class="cfgBtn" lc="html" lk="IDCS_LOGIN_NBSP">Login</button>
+                        </div>
+                    </form>
+                </div>
+                <div id="ErrorMsg"></div>
+            </div>
+            <div id="bottomBorder">
+                <div id="bottomBorderLeft"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
