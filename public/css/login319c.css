@@ -1,0 +1,511 @@
+html,
+body {
+	background-color: #d4d4d4;
+}
+
+input,
+div {
+	font-size: 13px;
+	font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;
+}
+
+#InitialView {
+	background: #fff center url(initview.gif) no-repeat;
+	width: 100%;
+	height: 100%;
+}
+
+#PageContent,
+#loginContent {
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	display: block;
+	font-size: 0px;
+	background-color: #fff;
+	min-height: 700px;
+}
+
+#mainBg {
+	position: absolute;
+    left: 0px;
+    top: 200px;
+    width: 100%;
+    height: 467px;
+    background-color: #E9E9E9;
+}
+
+#mainBgMask {
+	position: absolute;
+	left: 0px;
+	top: 275px;
+	width: 100%;
+	height: 318px;
+	background-image: url(pictures/mainBgMask.png);
+}
+
+#webNameImg {
+	position: relative;
+    left: 5px;
+    top: 270px;
+    width: 693px;
+    height: 36px;
+    margin-left: auto;
+    margin-right: auto;
+    background-repeat: no-repeat;
+    background-image: url(pictures/appName_login.png);
+}
+
+#webName {
+	position: relative;
+	left: -15px;
+	top: 280px;
+	width: 693px;
+	height: 27px;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: Bodoni MT Black;
+	font-size: 40px;
+	color: #00BBDB;
+	display: none;
+}
+
+#container {
+	position: relative;
+	top: 290px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 693px;
+	height: 262px;
+	background: url(pictures/LoginContent5e1f.png?v=2);
+}
+
+.content {
+	position: absolute;
+	top: 0px;
+	background: url(pictures/LoginContent5e1f.png?v=2);
+	width: 693px;
+	height: 262px;
+	margin-top: 20px;
+	z-index: 3;
+}
+
+#accountLoginWrap,
+#authcodeLoginWrap {
+	position: absolute;
+	top: 10px;
+	right: 0px;
+    width: 100%;
+    height: 100%;
+	width: 300px;
+}
+
+#authcodeLoginWrap {
+	top: 35px;
+}
+
+.takeAuthCodeWrap {
+	position: absolute;
+    left: 310px;
+    top: 97px;
+	width: 400px;
+}
+
+.takeAuthCodeWrap .question-icon {
+	display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url(pictures/question.png);
+    background-position: 0px 0px;
+    vertical-align: sub;
+    cursor: pointer;
+}
+
+#takeAuthCode {
+	max-width: 200px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #000;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+#takeAuthCode:hover {
+	color: #00000082;
+}
+
+#expireTime {
+	display: inline-block;
+    font-size: 18px;
+    color: #000;
+    text-align: center;
+}
+
+.itemWrap {
+	width: 300px;
+    height: 50px;
+    margin-bottom: 30px;
+    font-size: 16px;
+    border: 1px solid #666;
+	background-color: #fff;
+}
+
+#accountLoginWrap .itemWrap {
+	margin-bottom: 10px;
+}
+
+.txt-input {
+	width: 220px;
+	border: 0px;
+	background-color: transparent;
+	font-size: 16px;
+}
+
+.itemWrap.nextWrap {
+	margin-top: 80px;
+}
+
+.itemWrap input {
+	border: none;
+	vertical-align: 20px;
+}
+
+.itemWrap .txt-input:focus {
+	outline: inherit;
+    border: inherit;
+}
+
+.icon {
+	position: relative;
+	display: inline-block;
+	width: 50px;
+	height: 100%;
+	margin-right: 15px;
+	background-image: url(pictures/loginIcon.png);
+}
+
+.icon::after {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	height: 100%;
+	width: 1px;
+	top: 0;
+	right: 0px;
+	background: #666;
+}
+
+.user-icon {
+	background-position: 0 -67px;
+}
+
+.pwd-icon {
+	background-position: 0 -134px;
+}
+
+.disableItemWrap {
+	background: #ccc;
+}
+
+.itemWrap.disableItemWrap .txt-input:focus {
+	outline: none;
+	border: none;
+}
+
+#copyrightInfo {
+	position: absolute;
+	bottom: 5px;
+	left: 0px;
+	right: 0px;
+	text-align: center;
+}
+
+.watermark {
+	font-size: 16px;
+	color: #808080;
+}
+
+#divLang {
+	position: absolute;
+	right: 15px;
+	top: 10px;
+}
+
+#drpLang {
+	width: 100px;
+	font-size: 12px;
+	font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;
+	display: none;
+}
+
+#verifyTitle {
+	top: 190px;
+}
+
+#btnChgVerify {
+	position: absolute;
+	left: 688px;
+	top: 191px;
+	font-size: 15px;
+	font-weight: bolder;
+	color: #0066CC;
+	display: none;
+}
+
+#btnChgVerify:hover {
+	color: #30A9E5;
+}
+
+.cfgBtn {
+	width: 100%;
+	height: 100%;
+	background-image: url(pictures/loginBtn.png);
+	cursor: pointer;
+	border: 0px;
+	font-size: 18px;
+	color: #000000;
+	text-align: center;
+}
+
+.cfgBtn:hover {
+	background-position: 0px -50px;
+}
+
+.cfgBtn.disabled {
+	background-position: 0px -150px;
+	cursor: default;
+}
+
+#ErrorMsg {
+	position: absolute;
+    top: 290px;
+    width: 695px;
+    height: 50px;
+    font-size: 18px;
+    color: red;
+    word-break: break-all;
+}
+
+#accountLoginWrap #ErrorMsg {
+	top: 245px;
+	left: 0px;
+}
+
+#bottomBorder {
+    position: absolute;
+    left: 0px;
+    top: 664px;
+    height: 3px;
+    width: 100%;
+    background-color: #D90000;
+}
+
+#bottomBorderLeft {
+    height: 3px;
+    width: 62%;
+    background-color: #000000;
+}
+
+#divLang {
+	position: absolute;
+	right: 15px;
+	top: 10px;
+}
+
+#drpLang {
+	width: 100px;
+	font-size: 12px;
+	font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;
+	display: none;
+}
+
+.pluginNotic {
+	text-align: center;
+}
+
+#download {
+	position: absolute;
+	/*left: -280px;
+	top: 350px;*/
+	left: 0px;
+	right: 0px;
+	bottom: 10px;
+	font-size: 18px;
+	text-align: center;
+	vertical-align: middle;
+	color: #9b9b9b;
+}
+
+#dlPlugin {
+	display: inline-block;
+	zoom: 1;
+	/*IE only*/
+	*display: inline;
+	/*Only IE know this code (CSS Hack)*/
+	width: 27px;
+	height: 27px;
+	background-image: url(pictures/plugin.png);
+	background-repeat: no-repeat;
+}
+
+#dlPlugin:hover {
+	background-position: -27px 0px;
+}
+
+#langType {
+	padding: 2px 5px 2px 5px;
+	border: 1px solid #7A8486;
+	width: 160px;
+	cursor: pointer;
+	font-size: 13px;
+}
+
+#langTypeSel {
+	width: 160px;
+	height: 18px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+#langType:hover .arrowDown {
+	background-position: -30px 0;
+}
+
+.arrowDown {
+	display: inline-block;
+	width: 15px;
+	height: 8px;
+	background-image: url(Pictures/arrow.png);
+	position: absolute;
+	right: 8px;
+	top: 10px;
+}
+
+#langTypeList {
+	position: absolute;
+	left: 0px;
+	top: 23px;
+	border: 1px solid #7A8486;
+	background-color: #FFFFFF;
+	width: 170px;
+	z-index: 100;
+	display: none;
+	max-height: 300px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+#langTypeList>.item {
+	padding: 2px 5px 2px 5px;
+	width: 160px;
+	border-bottom: 1px solid #7A8486;
+}
+
+#langTypeList>.item.last {
+	border: none;
+}
+
+#langTypeList>.item:hover {
+	background-color: #C8F0F9;
+}
+
+#langTypeList>.item.selected {
+	background-color: #00BBDB;
+}
+
+#divCalendar {
+	position: absolute;
+	right: 15px;
+	top: 40px;
+	display: none;
+}
+
+#calendarType {
+	padding: 2px 5px 2px 5px;
+	border: 1px solid #7A8486;
+	width: 160px;
+	cursor: pointer;
+}
+
+#calendarTypeSel {
+	width: 160px;
+	height: 18px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+#calendarType:hover .arrowDown {
+	background-position: -30px 0;
+}
+
+#calendarTypeList {
+	position: absolute;
+	left: 0px;
+	top: 23px;
+	border: 1px solid #7A8486;
+	background-color: #FFFFFF;
+	width: 170px;
+	z-index: 100;
+	display: none;
+	max-height: 300px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+#calendarTypeList>.item {
+	padding: 2px 5px 2px 5px;
+	width: 160px;
+	border-bottom: 1px solid #7A8486;
+}
+
+
+#calendarTypeList>.item.last {
+	border: none;
+}
+
+#calendarTypeList>.item:hover {
+	background-color: #C8F0F9;
+}
+
+#calendarTypeList>.item.selected {
+	background-color: #00BBDB;
+}
+
+#snListStroage {
+	display: none;
+	width: 300px;
+	max-height: 250px;
+	overflow-y: auto;
+	position: absolute;
+	top: 55px;
+	left: 0px;
+	z-index: 9;
+	border: 1px solid #545a5c;
+	background: #fff;
+	margin: 0;
+	padding: 0;
+}
+
+.sn-item {
+	list-style: none;
+	height: 30px;
+	line-height: 30px;
+	padding-left: 10px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	cursor: pointer;
+	color: #545a5c
+}
+
+.sn-item:hover {
+	background: #aaa;
+}
